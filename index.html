@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    p {
+        background: #fff1c1;
+        outline: 2px solid #e8c462;
+    }
+
+    .by-class {
+        background: #fff1c1;
+        outline: 2px solid #03e747;
+    }
+
+    #by-id {
+        background: #fff1c1;
+        outline: 2px solid #ff0606;
+    }
+
+    a[href*="index"] {
+        background: #fff1c1;
+        outline: 2px solid #8502ff;
+    }
+
+    .parent>p {
+        background: #fff1c1;
+        outline: 2px solid #01d5ff;
+    }
+
+    p.x.y#pos {
+        background: #fff1c1;
+        outline: 2px solid #00ff08;
+    }
+
+    article.card[data-kind="info"]>p.combo {
+        background: #fff1c1;
+        outline: 2px solid #f503f9;
+    }
+
+    .box p.combo2 {
+        background: #fff1c1;
+        outline: 2px solid #fd85ff;
+    }
+
+    #panel>p[data-kind] {
+        background: #fff1c1;
+        outline: 2px solid #64ffc9;
+    }
+</style>
+
+<body>
+    <p>Застосовується до всіх тегів <b>p</b></p>
+    <!-- --- 0,0,0,1 --- -->
+    <p class="by-class">Селектор класу: <b>.by-class</b>.</p>
+    <!-- --- 0,0,1,0 --- -->
+    <p id="by-id">Селектор ідентифікатора: <b>#by-id</b>.</p>
+    <!-- --- 0,1,0,0 --- -->
+    <a href="./index.html">Атрибут: a[href*="index"]</a>
+    <!-- --- 0,1,0,0 --- -->
+    <div style="background: #fff1c1; outline: 2px solid #e8c462;">Вбудованний селектор</div>
+    <!-- --- 1,0,0,0 --- -->
+    <div class="parent">
+        <p>Дочірній селектор: <b>.parent</b>.</p>
+        <div>
+            <p>Це вкладений p.</p>
+        </div>
+    </div>
+    <!-- --- 0,0,1,1 --- -->
+    <p class="x y" id="pos">Послідовність селекторів: <b>p.x.y#</b>.</p>
+
+    <article class="card" data-kind="info">
+        <p class="combo">Комбінація: <b>article.card[data-kind="info"] p.combo</b>.</p>
+    </article>
+
+    <div class="box">
+        <p class="combo2">Комбінація 2 <b>.box p.combo2</b>.</p>
+    </div>
+
+    <div id="panel">
+        <p data-kind="note">Комбінація 3 <b>#panel p[data-kind]</b>.</p>
+    </div>
+
+</body>
+
+</html>
